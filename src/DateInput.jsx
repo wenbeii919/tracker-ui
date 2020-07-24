@@ -9,8 +9,8 @@ function editFormat(date) {
 }
 
 function unformat(str) {
-  const isDate = str.match(/^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$/);
-  return isDate ? new Date(str) : null;
+  const val = new Date(str);
+  return Number.isNaN(val.getTime()) ? null : val;
 }
 
 export default class DateInput extends React.Component {
@@ -55,6 +55,7 @@ export default class DateInput extends React.Component {
       : displayFormat(origValue);
     return (
       <input
+        type="text"
         {...props}
         value={displayValue}
         placeholder={focused ? 'yyyy-mm-dd' : null}

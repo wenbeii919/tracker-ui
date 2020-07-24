@@ -5,6 +5,7 @@ import {
   ButtonToolbar, Button, FormGroup, FormControl, ControlLabel, InputGroup,
   Row, Col,
 } from 'react-bootstrap';
+/* eslint "react/prefer-stateless-function": "off" */
 
 class IssueFilter extends React.Component {
   constructor({ location: { search } }) {
@@ -18,10 +19,11 @@ class IssueFilter extends React.Component {
     };
 
     this.onChangeStatus = this.onChangeStatus.bind(this);
-    this.onChangeEffortMin = this.onChangeEffortMin.bind(this);
-    this.onChangeEffortMax = this.onChangeEffortMax.bind(this);
+
     this.applyFilter = this.applyFilter.bind(this);
     this.showOriginalFilter = this.showOriginalFilter.bind(this);
+    this.onChangeEffortMin = this.onChangeEffortMin.bind(this);
+    this.onChangeEffortMax = this.onChangeEffortMax.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -64,6 +66,7 @@ class IssueFilter extends React.Component {
   applyFilter() {
     const { status, effortMin, effortMax } = this.state;
     const { history, urlBase } = this.props;
+
     const params = new URLSearchParams();
     if (status) params.set('status', status);
     if (effortMin) params.set('effortMin', effortMin);
@@ -88,9 +91,7 @@ class IssueFilter extends React.Component {
             >
               <option value="">(All)</option>
               <option value="New">New</option>
-              <option value="Assigned">Assigned</option>
-              <option value="Fixed">Fixed</option>
-              <option value="Closed">Closed</option>
+
             </FormControl>
           </FormGroup>
         </Col>
