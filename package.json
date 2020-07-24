@@ -42,8 +42,8 @@
     "react-router-dom": "^4.3.1",
     "react-select": "^2.4.4",
     "serialize-javascript": "^1.9.1",
-    "source-map-support": "^0.5.16",
-    "url-search-params": "^1.1.0"
+    "url-search-params": "^1.1.0",
+    "source-map-support": "^0.5.16"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.5",
