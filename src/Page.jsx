@@ -5,18 +5,17 @@ import {
   Grid, Col,
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-
-import Contents from './Contents.jsx';
 import IssueAddNavItem from './IssueAddNavItem.jsx';
-import SignInNavItem from './SignInNavItem.jsx';
+import Contents from './Contents.jsx';
 import Search from './Search.jsx';
 import UserContext from './UserContext.js';
 import graphQLFetch from './graphQLFetch.js';
 import store from './store.js';
+import SignInNavItem from './SignInNavItem.jsx';
 
 function NavBar({ user, onUserChange }) {
   return (
-    <Navbar fluid>
+    <Navbar>
       <Navbar.Header>
         <Navbar.Brand>Issue Tracker</Navbar.Brand>
       </Navbar.Header>
@@ -87,6 +86,15 @@ export default class Page extends React.Component {
   }
 
   async componentDidMount() {
+    // const apiEndpoint = window.ENV.UI_AUTH_ENDPOINT;
+    // const response = await fetch(`${apiEndpoint}/user`, {
+    //   method: 'POST',
+    //   credentials: 'include',
+    // });
+    // const body = await response.text();
+    // const result = JSON.parse(body);
+    // const { signedIn, givenName } = result;
+    // this.setState({ user: { signedIn, givenName } });
     const { user } = this.state;
     if (user == null) {
       const data = await Page.fetchData();

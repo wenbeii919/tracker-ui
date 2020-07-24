@@ -5,7 +5,7 @@ import {
 
 import withToast from './withToast.jsx';
 
-class SigninNavItem extends React.Component {
+class SignInNavItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,7 +18,7 @@ class SigninNavItem extends React.Component {
     this.signIn = this.signIn.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const clientId = window.ENV.GOOGLE_CLIENT_ID;
     if (!clientId) return;
     window.gapi.load('auth2', () => {
@@ -130,5 +130,4 @@ class SigninNavItem extends React.Component {
     );
   }
 }
-
-export default withToast(SigninNavItem);
+export default withToast(SignInNavItem);
