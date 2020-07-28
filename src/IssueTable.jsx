@@ -17,7 +17,7 @@ class IssueRowPlain extends React.Component {
     const disabled = !user.signedIn;
 
     const selectLocation = { pathname: `/issues/${issue.id}`, search };
-    const editToolTip = (
+    const editTooltip = (
       <Tooltip id="close-tooltip" placement="top">Edit Issue</Tooltip>
     );
     const closeTooltip = (
@@ -48,13 +48,13 @@ class IssueRowPlain extends React.Component {
         <td>{issue.title}</td>
         <td>
           <LinkContainer to={`/edit/${issue.id}`}>
-            <OverlayTrigger delayShow={1000} overlay={editToolTip}>
+            <OverlayTrigger delayShow={1000} overlay={editTooltip}>
               <Button bsSize="xsmall">
                 <Glyphicon glyph="edit" />
               </Button>
             </OverlayTrigger>
           </LinkContainer>
-
+          {' '}
           <OverlayTrigger delayShow={1000} overlay={closeTooltip}>
             <Button disabled={disabled} bsSize="xsmall" onClick={onClose}>
               <Glyphicon glyph="remove" />

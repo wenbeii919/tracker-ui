@@ -27,7 +27,6 @@ class IssueAddNavItem extends React.Component {
     this.setState({ showing: false });
   }
 
-
   async handleSubmit(e) {
     e.preventDefault();
     this.hideModal();
